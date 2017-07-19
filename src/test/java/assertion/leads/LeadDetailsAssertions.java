@@ -3,7 +3,6 @@ package assertion.leads;
 import assertion.common.Assertions;
 import page.leads.LeadDetailsPage;
 
-
 import static org.testng.Assert.assertEquals;
 
 /**

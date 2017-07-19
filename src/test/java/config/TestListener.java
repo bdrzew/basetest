@@ -1,8 +1,5 @@
 package config;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.OutputType;
@@ -16,6 +13,9 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.TestListenerAdapter;
 import test.common.SeleniumTest;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Test listener responsible for handling logging and errors

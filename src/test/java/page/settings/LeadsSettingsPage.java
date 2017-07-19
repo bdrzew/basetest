@@ -1,12 +1,12 @@
 package page.settings;
 
-import java.util.List;
-
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import page.settings.common.SettingsPage;
+
+import java.util.List;
 
 /**
  * Leads settings page

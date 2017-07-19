@@ -1,10 +1,7 @@
 package page.common;
 
-import java.util.concurrent.TimeUnit;
-
 import assertion.common.Assertions;
 import assertion.common.ISupportAssertions;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
@@ -12,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import scenario.common.Scenario;
 
+import java.util.concurrent.TimeUnit;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
