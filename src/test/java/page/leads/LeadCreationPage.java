@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import page.common.BasePage;
 
 /**
@@ -42,6 +43,7 @@ public class LeadCreationPage extends BasePage{
     }
 
     public LeadListPage confirmRemoveInPopup() {
+        waitUntil(ExpectedConditions.elementToBeClickable(confirmRemoval));
         confirmRemoval.click();
         return new LeadListPage(driver);
     }

@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import page.common.BasePage;
 
 import java.util.List;
@@ -38,8 +39,8 @@ public class LeadListPage extends BasePage {
 
     public LeadDetailsPage clickLeadInList(String description) {
         waitUntil(p -> !leadList.isEmpty());
-        waitUntil(BaseExpectedConditions.staleElement(
-            By.xpath(String.format(LEAD_LIST_ITEM, description)))).click();
+        waitUntil(BaseExpectedConditions.clickStaleElement(
+            By.xpath(String.format(LEAD_LIST_ITEM, description))));
         return new LeadDetailsPage(driver);
     }
 
