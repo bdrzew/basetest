@@ -17,6 +17,7 @@
         <commons.lang.version>2.6</commons.lang.version>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.2.3</logback.version>
+        <rest-assured.version>3.0.2</rest-assured.version>
     </properties>
 
     <dependencies>
@@ -59,6 +60,11 @@
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>${commons.lang.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
         </dependency>
     </dependencies>
 

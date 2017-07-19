@@ -1,18 +1,19 @@
 package test;
 
 import assertion.leads.LeadDetailsAssertions;
+import config.RestApi;
 import model.BaseUser;
 import model.Lead;
 import model.settings.LeadStatus;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 import page.LoginPage;
 import scenario.LoginScenario;
 import scenario.LogoutScenario;
 import scenario.leads.LeadCreateScenario;
 import scenario.leads.LeadOpenScenario;
-import scenario.leads.LeadRemoveScenario;
+import scenario.rest.LeadsDeleteScenario;
+import scenario.rest.LeadsRetrieveIdScenario;
 import scenario.settings.LeadsSettingsEditStatusScenario;
 import scenario.settings.OpenUserSettingsScenario;
 import test.common.SeleniumTest;
@@ -47,7 +48,7 @@ public class BaseTest extends SeleniumTest {
             .run(new LogoutScenario());
     }
 
-    @Test
+    @org.testng.annotations.Test
     public void verifyInterviewScenarioTest() {
         new LoginPage(getDriver(), getConfig().getBaseUrl())
             .run(new LoginScenario(user))
@@ -59,13 +60,15 @@ public class BaseTest extends SeleniumTest {
             .run(new LeadsSettingsEditStatusScenario(modifiedStatus))
             .run(new LeadOpenScenario(lead))
                 .check(LeadDetailsAssertions.class)
-                    .verifyStatus(modifiedStatus.getName());
+                    .verifyStatus(modifiedStatus.getName())
+                .endAssertion()
+            .run(new LogoutScenario());;
     }
 
     @AfterMethod(alwaysRun = true)
     public void testTeardown() {
-        new LoginPage(getDriver(), getConfig().getBaseUrl())
-            .run(new LeadRemoveScenario(lead))
-            .run(new LogoutScenario());
+        new RestApi()
+            .run(new LeadsRetrieveIdScenario(lead))
+            .run(new LeadsDeleteScenario(lead));
     }
 }
