@@ -7,6 +7,7 @@ import model.Lead;
 import model.settings.LeadStatus;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import page.LoginPage;
 import scenario.LoginScenario;
 import scenario.LogoutScenario;
@@ -48,7 +49,7 @@ public class BaseTest extends SeleniumTest {
             .run(new LogoutScenario());
     }
 
-    @org.testng.annotations.Test
+    @Test
     public void verifyInterviewScenarioTest() {
         new LoginPage(getDriver(), getConfig().getBaseUrl())
             .run(new LoginScenario(user))
@@ -62,7 +63,7 @@ public class BaseTest extends SeleniumTest {
                 .check(LeadDetailsAssertions.class)
                     .verifyStatus(modifiedStatus.getName())
                 .endAssertion()
-            .run(new LogoutScenario());;
+            .run(new LogoutScenario());
     }
 
     @AfterMethod(alwaysRun = true)
